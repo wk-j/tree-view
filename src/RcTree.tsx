@@ -57,7 +57,7 @@ function renderArray(arr) {
 
 let title = (t) => renderArray([<i className="ui windows icon" />, ' ', t]);
 
-const QTreeNode = styled(TreeNode)`
+const QTreeNode = styled(TreeNode) `
     /*height: 50px;*/
 `;
 

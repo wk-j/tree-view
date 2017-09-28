@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Treebeard} from 'react-treebeard';
+import { Treebeard } from 'react-treebeard';
 
 const data = {
     name: 'root',
@@ -38,18 +38,18 @@ type State = {
 }
 
 export class TreeExample extends React.Component<{}, State> {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = { cursor: {} };
         this.onToggle = this.onToggle.bind(this);
     }
-    onToggle(node, toggled){
-        if(this.state.cursor){this.state.cursor.active = false;}
+    onToggle(node, toggled) {
+        if (this.state.cursor) { this.state.cursor.active = false; }
         node.active = true;
-        if(node.children){ node.toggled = toggled; }
+        if (node.children) { node.toggled = toggled; }
         this.setState({ cursor: node });
     }
-    render(){
+    render() {
         return (
             <Treebeard
                 data={data}

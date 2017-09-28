@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as TreeView from "react-treeview";
 
-console.log(TreeView);
+
 
 type State = {
     collapsedBookkeeping: any
 }
 
-type Props = { }
+type Props = {}
 
 const dataSource = [
     ['Apple', 'Orange'],
