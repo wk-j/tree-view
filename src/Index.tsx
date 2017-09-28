@@ -1,19 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Demo } from "./Demo";
 
-type Props = {
-
-}
-
-class App extends React.Component<Props,{}> { 
-
-    render() {
-        return (
-            <h1>Hello, world!</h1>
-        );
-    }
-}
-
-
-
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(<Demo />, document.getElementById("app"));
