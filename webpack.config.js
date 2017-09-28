@@ -1,9 +1,9 @@
-var CopyWebpackPlugin =  require("copy-webpack-plugin")
+var CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
     //target: "electron",
     devtool: "source-map",
-    entry: 
+    entry:
     {
         Render: "./src/Index.tsx"
     },
@@ -17,17 +17,27 @@ module.exports = {
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
             { test: /\.(eot|woff|woff2|svg|ttf|png)([\?]?.*)$/, loader: "file-loader" },
             { test: /\.jpg$/, loader: "url-loader?mimetype=image/jpg" },
-            { test: /\.css$/, loader: "style-loader!css-loader" }
+            { test: /\.css$/, loader: "style-loader!css-loader" },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "less-loader" // compiles Less to CSS
+                }]
+            }
         ]
-    },  
+    },
     plugins: [
         new CopyWebpackPlugin([{
             from: "src/Index.html",
-            to : "Index.html"
+            to: "Index.html"
         }])
     ],
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
-    externals: { }
+    externals: {}
 };
