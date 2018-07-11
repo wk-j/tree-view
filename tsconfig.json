@@ -7,6 +7,7 @@
         "jsx": "react",
         "sourceMap": true,
         //"allowJs": true,
+        "esModuleInterop": true,
         "noImplicitAny": false
     },
     "exclude": [
