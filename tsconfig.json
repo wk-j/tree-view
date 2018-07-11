@@ -1,14 +1,16 @@
 {
     "compilerOptions": {
         "experimentalDecorators": true,
-        //"moduleResolution": "node",
         "module": "commonjs",
         "target": "es2015",
         "jsx": "react",
         "sourceMap": true,
-        //"allowJs": true,
         "esModuleInterop": true,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "lib": [
+            "es6",
+            "dom"
+        ]
     },
     "exclude": [
         "node_modules"

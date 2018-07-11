@@ -4,15 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-
 namespace TreeView.Controllers {
-
-    public class Node {
-        public bool IsRoot { set; get; }
-        public int Id { set; get; }
-        public string Name { set; get; }
-        public int Parent { set; get; }
-    }
 
     [Route("api/[controller]/[action]")]
     public class TreeController : ControllerBase {
@@ -23,6 +15,7 @@ namespace TreeView.Controllers {
                     IsRoot = false,
                     Id = file.FullName.GetHashCode(),
                     Name = file.Name,
+                    IsFile = true,
                     Parent = root.FullName.GetHashCode()
                 };
             }

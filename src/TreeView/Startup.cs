@@ -30,6 +30,12 @@ namespace TreeView {
                 app.UseHsts();
             }
 
+            app.UseCors(builder => {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+            });
+
             // app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseMvc();
