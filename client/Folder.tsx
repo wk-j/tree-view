@@ -31,8 +31,8 @@ export class Folder extends React.Component<FolderProps> {
                     <div className="header">{this.props.folder.name}</div>
                     <div className="description">Folder</div>
                     <div className="list">
-                        {this.getFiles(folder).map(x => <File isSelected={this.props.isSelected} onSelect={this.props.onSelect} file={x} />)}
                         {this.getFolders(folder).map(x => <Folder isSelected={this.props.isSelected} onSelect={this.props.onSelect} folder={x} nodes={nodes} />)}
+                        {this.getFiles(folder).map(x => <File isSelected={this.props.isSelected} onSelect={this.props.onSelect} file={x} />)}
                     </div>
                 </div>
             </div>
