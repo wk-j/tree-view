@@ -6,8 +6,6 @@ import './Theme.less';
 //import './App.less';
 import "react-ui-tree/dist/react-ui-tree.css";
 
-console.log(cx);
-
 export class UiTree extends React.Component {
     state = {
         active: null,

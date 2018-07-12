@@ -1,3 +1,17 @@
 body {
     padding: 20px;
 }
+
+div.header {
+    cursor: pointer;
+}
+
+div.tree-file:hover {
+    color: green;
+    text-shadow:  1px 1px 1px grey;
+}
+
+div.tree-file.active {
+    color: green;
+    text-shadow:  1px 1px 1px grey;
+}

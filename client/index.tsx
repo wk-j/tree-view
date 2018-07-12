@@ -10,6 +10,7 @@ import { Folder } from "./Folder";
 
 type State = {
     nodes: Node[]
+    selectedNode: Node
 }
 
 class App extends React.Component<{}, State> {
@@ -17,7 +18,14 @@ class App extends React.Component<{}, State> {
         super(props);
 
         this.state = {
-            nodes: []
+            nodes: [],
+            selectedNode: {
+                name: "",
+                id: 0,
+                isRoot: true,
+                parent: 0,
+                isFile: false
+            }
         }
     }
 
@@ -29,6 +37,11 @@ class App extends React.Component<{}, State> {
         })
     }
 
+    onSelect = (node) => {
+        this.setState({
+            selectedNode: node
+        })
+    }
 
     getRoot = (): Node => {
         if (this.state.nodes.length) {
@@ -44,10 +57,12 @@ class App extends React.Component<{}, State> {
         }
     }
 
+    isSelected = (node) => this.state.selectedNode == node;
+
     render() {
         return (
             <div className="ui list">
-                <Folder nodes={this.state.nodes} folder={this.getRoot()} />
+                <Folder isSelected={this.isSelected} onSelect={this.onSelect} nodes={this.state.nodes} folder={this.getRoot()} />
             </div>
         )
     }

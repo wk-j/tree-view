@@ -3,6 +3,8 @@ import { Node } from "./Node"
 import { File } from "./File"
 
 type FolderProps = {
+    onSelect: (Node) => void;
+    isSelected: (Node) => boolean;
     folder: Node
     nodes: Node[]
 }
@@ -22,7 +24,6 @@ export class Folder extends React.Component<FolderProps> {
 
     render() {
         var { folder, nodes } = this.props;
-        console.log(nodes)
         return (
             <div className="item">
                 <i className="folder icon"></i>
@@ -30,8 +31,8 @@ export class Folder extends React.Component<FolderProps> {
                     <div className="header">{this.props.folder.name}</div>
                     <div className="description">Folder</div>
                     <div className="list">
-                        {this.getFiles(folder).map(x => <File file={x} />)}
-                        {this.getFolders(folder).map(x => <Folder folder={x} nodes={nodes} />)}
+                        {this.getFiles(folder).map(x => <File isSelected={this.props.isSelected} onSelect={this.props.onSelect} file={x} />)}
+                        {this.getFolders(folder).map(x => <Folder isSelected={this.props.isSelected} onSelect={this.props.onSelect} folder={x} nodes={nodes} />)}
                     </div>
                 </div>
             </div>
